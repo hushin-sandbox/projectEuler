@@ -2,7 +2,7 @@ const goal = 600851475143
 const primeFactors = [] // debug用
 let i = 2
 let next = goal
-let maxPrime = i
+let maxPrime = 1
 
 while (i <= next) {
   if (next % i === 0) {
