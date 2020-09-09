@@ -8,9 +8,9 @@ while (i <= next) {
   if (next % i === 0) {
     maxPrime = i
     primeFactors.push(i)
-    next = next / i
+    next /= i
     while (next % i === 0) {
-      next = next / i
+      next /= i
     }
   }
   i++
