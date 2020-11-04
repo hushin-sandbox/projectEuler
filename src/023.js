@@ -36,4 +36,5 @@ const canBeWritten = (x) => {
 }
 const result = sum(range(1, 28123).filter((x) => !canBeWritten(x)))
 
+// TODO 計算量が多すぎる
 console.log(result)
