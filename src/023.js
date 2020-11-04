@@ -23,18 +23,14 @@ const abundantNumbers = range(1, 28123).filter((x) => x < sum(getDivisors(x)))
 // console.log(abundantNumbers)
 const abundantNumbersLength = abundantNumbers.length
 
-// 2つの過剰数の和で書き表せない正の整数の総和を求める
-const canBeWritten = (x) => {
-  for (let i = 0; i < abundantNumbersLength; i++) {
-    for (let j = i; j < abundantNumbersLength; j++) {
-      const sum = abundantNumbers[i] + abundantNumbers[j]
-      if (sum > x) break
-      if (sum === x) return true
-    }
+// 2つの過剰数の和で書き表せる表を先に作る
+const sumAbundantNumbers = {}
+for (let i = 0; i < abundantNumbersLength; i++) {
+  for (let j = i; j < abundantNumbersLength; j++) {
+    sumAbundantNumbers[abundantNumbers[i] + abundantNumbers[j]] = true
   }
-  return false
 }
-const result = sum(range(1, 28123).filter((x) => !canBeWritten(x)))
 
-// TODO 計算量が多すぎる
+// 2つの過剰数の和で書き表せない正の整数の総和を求める
+const result = sum(range(1, 28123).filter((x) => !sumAbundantNumbers[x]))
 console.log(result)
